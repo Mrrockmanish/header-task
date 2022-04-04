@@ -1,0 +1,94 @@
+@use "sass:math";
+@use 'global';
+@use 'fonts';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "node_modules/magnific-popup/dist/magnific-popup";
+
+
+$root-font-size: 16;
+
+@function s($size) {
+  @return math.div($size, $root-font-size) * 1rem;
+}
+
+html {
+  font-family: 'Roboto';
+  font-size: 88%;
+  height: 100%;
+
+  @media (min-width: 375px) {
+    font-size: 100%;
+  }
+}
+
+body {
+  color: #252525;
+  font-size: s(14);
+  font-weight: 400;
+  word-wrap: break-word;
+  line-height: 1.17;
+  height: 100%;
+}
+
+.container {
+  padding-left: s(15);
+  padding-right: s(15);
+  margin: 0 auto;
+}
+
+a {
+  transition: .3s;
+}
+
+@layer base {
+  p {
+    @apply mb-4
+  }
+
+  input, textarea, button {
+    @apply outline-none
+  }
+}
+
+.header {
+  &__logo {
+    width: s(30);
+    height: s(30);
+    @media (min-width: 992px) {
+      width: s(140);
+      height: s(80);
+    }
+    @media (min-width: 1200px) {
+      width: s(210);
+      height: s(111);
+    }
+  }
+
+  &__logo-svg {
+    max-width: s(20);
+    @media (min-width: 992px) {
+      max-width: s(70);
+    }
+    @media (min-width: 1200px) {
+        max-width: 100%;
+    }
+  }
+
+}
+
+.main-menu {
+  box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.25);
+  
+  &__nav {
+    li.active {
+      a {
+        background: #FFCC00;
+        color:#252525;
+        pointer-events: none;
+      }
+    }
+  }
+}
